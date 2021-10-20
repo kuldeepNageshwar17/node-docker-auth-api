@@ -8,6 +8,7 @@ const RedisStore = require("connect-redis")(session)
 
 const {MONGO_USER, MONGO_PASS,MONGO_IP,MONGO_PORT,REDIS_URL,SESSION_SECRET,REDIS_PORT} = require("./config/config")
 
+console.log("mongouser",MONGO_USER,MONGO_PASS, MONGO_IP,MONGO_PORT,SESSION_SECRET);
 let redisClient=redis.createClient({
     host:REDIS_URL,
     port:REDIS_PORT
@@ -40,7 +41,7 @@ const connnectwithRetry=()=>{
         useNewUrlParser:true,
         useUnifiedTopology:true
     })
-    .then(()=>console.log("successfully cconnected to db"))
+    .then(()=>console.log("successfully connected to db"))
     .catch((e)=>{
         console.log(e)
         setTimeout(connnectwithRetry(),5000)

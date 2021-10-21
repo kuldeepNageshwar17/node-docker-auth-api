@@ -6,7 +6,7 @@ services:
   node-app:
     deploy:
       replicas: 6
-      restart-policy:
+      restart_policy:
         condition: any
       update_config:
         parallelism: 2
